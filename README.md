@@ -86,6 +86,14 @@ as the "Kubernetes API port". In this case you can use the `K3S_API_PORT` enviro
 docker run -d --privileged --name k3s --hostname k3s -p 8443:8443 -p 6000:6000 -e K3S_API_PORT=6000 unboundedsystems/k3s-dind
 ```
 
+### Changing k3s server node name
+
+There are situations where you cannot set hostname through docker to container (running k3s through kubernetes)
+In this case you can use `K3S_NAME` environment variable like this:
+```bash
+docker run -d --privileged -p 8443:8443 -e K3S_NAME=k3s-dind unboundedsystems/k3s-dind
+```
+
 ## You made Kubernetes that small??
 
 Nope! The awesome folks over at [Rancher Labs](https://rancher.com/) did all

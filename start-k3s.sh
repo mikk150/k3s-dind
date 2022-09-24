@@ -32,7 +32,8 @@ function runDocker {
     done
 }
 
-K3S_NAME=$(hostname)
+K3S_NAME=${K3S_NAME:=`hostname`}
+
 K3S_ARGS=( \
     --no-deploy=traefik \
     --docker \
